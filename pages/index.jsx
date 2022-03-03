@@ -11,7 +11,9 @@ function Page() {
 
   //RENDIRAZAÇÃO CONDICIONAL OU CONDIÇÃO TERNARIA
 
-  
+  const Radicais = true
+  const Presenca = 'Ativo'
+
   function initialGA() {
     ReactGA.initialize("UA-170909874-1");
     ReactGA.pageview(urlLocal);
@@ -117,17 +119,6 @@ function Page() {
     }
   };
 
-
-
-  // null | "" | undefined | false
-const existe = true
-
-
-// 1 se eu colocar minha variavel com um valor que existe meu select vai exibir os cultos de sabados
-//quando nao atender ela vai exibir cultos de terça feira
-
-// 2 criar uma segunda variavel que se for igual a "Ativo" exiba o botao inscrever
-
   return (
     <>
       {/* {existe && <>teste</>} 
@@ -135,7 +126,6 @@ const existe = true
       <Head>
         <title>Igreja Batista Água Viva - Ribeirão Pires</title>
       </Head>
-      {existe && (
       <div className="container">
         <div className="header">
           <img src="/images/logo.jpg" />
@@ -146,105 +136,121 @@ const existe = true
         {(qtdDomingoManha < qtdMAxima || qtdDomingoNoite < qtdMAxima) && (
           // <>
           //   {(dia_sem == 0 || dia_sem == 5 || dia_sem == 6) && (
-              <>
-                {listagem ? (
-                  <div className="form">
-                    <label>Nome</label>
-                    {nomeLimpar && (
-                      <input
-                        onKeyUp={(e) => setNome(e.currentTarget.value)}
-                        type="text"
-                        placeholder="Nome "
-                        className="input_name"
-                        required
-                      />
-                    )}
-                    {!nomeLimpar && (
-                      <input
-                        onKeyUp={(e) => setNome(e.currentTarget.value)}
-                        type="text"
-                        placeholder="Nome "
-                        className="input_name"
-                        required
-                      />
-                    )}
+          <>
+            {listagem ? (
+              <div className="form">
+                <label>Nome</label>
+                {nomeLimpar && (
+                  <input
+                    onKeyUp={(e) => setNome(e.currentTarget.value)}
+                    type="text"
+                    placeholder="Nome "
+                    className="input_name"
+                    required
+                  />
+                )}
+                {!nomeLimpar && (
+                  <input
+                    onKeyUp={(e) => setNome(e.currentTarget.value)}
+                    type="text"
+                    placeholder="Nome "
+                    className="input_name"
+                    required
+                  />
+                )}
 
-                    <br></br>
-                    <label>Sobrenome</label>
-                    {sobrenomeLimpar && (
-                      <input
-                        onKeyUp={(e) => setSobrenome(e.currentTarget.value)}
-                        type="text"
-                        placeholder="Sobrenome"
-                        required
-                      />
-                    )}
-                    {!sobrenomeLimpar && (
-                      <input
-                        onKeyUp={(e) => setSobrenome(e.currentTarget.value)}
-                        type="text"
-                        placeholder="Sobrenome"
-                        required
-                      />
-                    )}
-                    <br></br>
-                    <label>Discipulado</label>
-                    {redeLimpar && (
-                      <select
-                        onChange={(e) => {
-                          setRede(e.target.value);
-                        }}
-                        required
-                      >
-                        <option value="">Selecione seu discipulado</option>
-                        <option value="isabela">Isabela Amaro</option>
-                        <option value="matheus">Matheus Amaro</option>
-                        <option value="felipe">Felipe Ramos</option>
-                        <option value="silas">
-                          Silas Souza
-                        </option>
-                        <option value="elaine">Elaine Jeremias </option>
-                      </select>
-                    )}
-                    {!redeLimpar && (
-                      <select
-                        onChange={(e) => {
-                          setRede(e.target.value);
-                        }}
-                        required
-                      >
-                        <option value="">Selecione seu discipulado</option>
-                        <option value="isabela">Isabela Amaro</option>
-                        <option value="matheus">Matheus Amaro</option>
-                        <option value="felipe">Felipe Ramos</option>
-                        <option value="silas">
-                          Silas Souza
-                        </option>
-                        <option value="elaine">Elaine Jeremias </option>
-                      </select>
-                    )}
-                    <br></br>
-                    <label>Qual culto deseja ir?</label>
-                    <select
-                      onChange={(e) => {
-                        setCulto(e.target.value);
-                      }}
-                      required
-                    >
-                      <option value="">Selecione o culto</option>
-                      {/* {qtdSabado < qtdMAxima && (
+                <br></br>
+                <label>Sobrenome</label>
+                {sobrenomeLimpar && (
+                  <input
+                    onKeyUp={(e) => setSobrenome(e.currentTarget.value)}
+                    type="text"
+                    placeholder="Sobrenome"
+                    required
+                  />
+                )}
+                {!sobrenomeLimpar && (
+                  <input
+                    onKeyUp={(e) => setSobrenome(e.currentTarget.value)}
+                    type="text"
+                    placeholder="Sobrenome"
+                    required
+                  />
+                )}
+                <br></br>
+                <label>Discipulado</label>
+                {redeLimpar && (
+                  <select
+                    onChange={(e) => {
+                      setRede(e.target.value);
+                    }}
+                    required
+                  >
+                    <option value="">Selecione seu discipulado</option>
+                    <option value="isabela">Isabela Amaro</option>
+                    <option value="matheus">Matheus Amaro</option>
+                    <option value="felipe">Felipe Ramos</option>
+                    <option value="silas">
+                      Silas Souza
+                    </option>
+                    <option value="elaine">Elaine Jeremias </option>
+                  </select>
+                )}
+                {!redeLimpar && (
+                  <select
+                    onChange={(e) => {
+                      setRede(e.target.value);
+                    }}
+                    required
+                  >
+                    <option value="">Selecione seu discipulado</option>
+                    <option value="isabela">Isabela Amaro</option>
+                    <option value="matheus">Matheus Amaro</option>
+                    <option value="felipe">Felipe Ramos</option>
+                    <option value="silas">
+                      Silas Souza
+                    </option>
+                    <option value="elaine">Elaine Jeremias </option>
+                  </select>
+                )}
+                <br></br>
+                <label>Qual culto deseja ir?</label>
+                <select
+                  onChange={(e) => {
+                    setCulto(e.target.value);
+                  }}
+                  required
+                >
+                  <option value="">Selecione o culto</option>
+                  {/* {qtdSabado < qtdMAxima && (
                         <option value="sabado">Sábado - 19hs</option>
                       )} */}
-                      {qtdDomingoManha < qtdMAxima && (
-                        <option value="manha">Sábado - 15hs</option>
-                      )}
-                      {qtdDomingoNoite < qtdMAxima && (
-                        <option value="noite">Sábado - 17:30hs </option>
-                      )}
-                    </select>
-                    {/* <br></br>
+                  {
+                    !Radicais ? (
+                      <>
+                        {qtdDomingoManha < qtdMAxima && (
+                          <option value="manha">Sábado - 15hs</option>
+                        )}
+                        {qtdDomingoNoite < qtdMAxima && (
+                          <option value="noite">Sábado - 17:30hs </option>
+                        )}
+                      </>
+                    ) : (
+                      <>
+                        {qtdDomingoManha < qtdMAxima && (
+                          <option value="manha">Terça-Feira - 09:00hs</option>
+                        )}
+                        {qtdDomingoNoite < qtdMAxima && (
+                          <option value="noite">Terça-Feira - 18:00hs </option>
+                        )}
+                      </>
+                    )
+
+                  }
+                </select>
+                {/* <br></br>
                     <label>Quantas crianças vai levar para o cultinho?</label> */}
-                    {/* {criancasLimpar && (
+                {/* {criancasLimpar && (
                       <input
                         onKeyUp={(e) => setCriancas(e.currentTarget.value)}
                         type="number"
@@ -260,8 +266,8 @@ const existe = true
                         required
                       />
                     )} */}
-                    <div className="vagas">
-                      {/* <span>
+                <div className="vagas">
+                  {/* <span>
                         Sábado 19hs -
                         {qtdSabado >= qtdMAxima && (
                           <small className="red"> vagas encerradas</small>
@@ -280,73 +286,73 @@ const existe = true
                           </>
                         )}
                       </span> */}
-                      <span>
-                        Sábado 15:00hs -
-                        {qtdDomingoManha >= qtdMAxima && (
-                          <small className="red"> vagas encerradas</small>
-                        )}
-                        {qtdDomingoManha < qtdMAxima && (
+                  <span>
+                    Sábado 15:00hs -
+                    {qtdDomingoManha >= qtdMAxima && (
+                      <small className="red"> vagas encerradas</small>
+                    )}
+                    {qtdDomingoManha < qtdMAxima && (
+                      <>
+                        {qtdDomingoManha >= 0 && (
                           <>
-                            {qtdDomingoManha >= 0 && (
-                              <>
-                                {" "}
-                                resta
-                                {qtdDomingoManha != qtdMAxima - 1 && <>m</>}
-                              </>
-                            )}
-                            {qtdDomingoManha >= 0 && (
-                              <small> {qtdMAxima - qtdDomingoManha}</small>
-                            )}
-                            {qtdDomingoManha >= 0 && (
-                              <>
-                                {" "}
-                                vaga{qtdDomingoManha != qtdMAxima - 1 && <>s</>}
-                              </>
-                            )}
+                            {" "}
+                            resta
+                            {qtdDomingoManha != qtdMAxima - 1 && <>m</>}
                           </>
                         )}
-                      </span>
-                      <span>
-                        Sábado 17:30hs -
-                        {qtdDomingoNoite >= qtdMAxima && (
-                          <small className="red"> vagas encerradas</small>
+                        {qtdDomingoManha >= 0 && (
+                          <small> {qtdMAxima - qtdDomingoManha}</small>
                         )}
-                        {qtdDomingoNoite < qtdMAxima && (
+                        {qtdDomingoManha >= 0 && (
                           <>
-                            {qtdDomingoNoite >= 0 && (
-                              <>
-                                {" "}
-                                resta
-                                {qtdDomingoNoite != qtdMAxima - 1 && <>m</>}
-                              </>
-                            )}
-                            {qtdDomingoNoite >= 0 && (
-                              <small> {qtdMAxima - qtdDomingoNoite}</small>
-                            )}
-                            {qtdDomingoNoite >= 0 && (
-                              <>
-                                {" "}
-                                vaga{qtdDomingoNoite != qtdMAxima - 1 && <>s</>}
-                              </>
-                            )}
+                            {" "}
+                            vaga{qtdDomingoManha != qtdMAxima - 1 && <>s</>}
                           </>
                         )}
-                      </span>
-                    </div>
+                      </>
+                    )}
+                  </span>
+                  <span>
+                    Sábado 17:30hs -
+                    {qtdDomingoNoite >= qtdMAxima && (
+                      <small className="red"> vagas encerradas</small>
+                    )}
+                    {qtdDomingoNoite < qtdMAxima && (
+                      <>
+                        {qtdDomingoNoite >= 0 && (
+                          <>
+                            {" "}
+                            resta
+                            {qtdDomingoNoite != qtdMAxima - 1 && <>m</>}
+                          </>
+                        )}
+                        {qtdDomingoNoite >= 0 && (
+                          <small> {qtdMAxima - qtdDomingoNoite}</small>
+                        )}
+                        {qtdDomingoNoite >= 0 && (
+                          <>
+                            {" "}
+                            vaga{qtdDomingoNoite != qtdMAxima - 1 && <>s</>}
+                          </>
+                        )}
+                      </>
+                    )}
+                  </span>
+                </div>
 
-                    <br></br>
-                    <button onClick={salve}>Inscrever</button>
-                    <a href="/listagem.html" className="listagem">
-                      Verifique a listagem
-                    </a>
-                  </div>
-                ) : (
-                  <p className="carregando">
-                    <img src="/images/loading.gif" />
-                    <span>Carregando...</span>
-                  </p>
-                )}
-              </>
+                <br></br>
+                {!Presenca === 'Ativo' && <button onClick={salve}>Inscrever</button>}
+                <a href="/listagem.html" className="listagem">
+                  Verifique a listagem
+                </a>
+              </div>
+            ) : (
+              <p className="carregando">
+                <img src="/images/loading.gif" />
+                <span>Carregando...</span>
+              </p>
+            )}
+          </>
           //   )}
           // </>
         )}
@@ -400,7 +406,6 @@ const existe = true
           </div>
         )} */}
       </div>
-    )}
     </>
   );
 }
