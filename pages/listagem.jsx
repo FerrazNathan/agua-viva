@@ -8,7 +8,7 @@ function Page() {
   const [data, setData] = useState();
   const [orderListagem, setOrderListagem] = useState();
   const [listagem, setListagem] = useState("todos");
-
+  
   const url = "https://aguaviva-rp.firebaseio.com/teste.json";
 
   function compared(a, b) {
