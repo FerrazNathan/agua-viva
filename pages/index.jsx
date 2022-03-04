@@ -11,8 +11,8 @@ function Page() {
 
   //RENDIRAZAÇÃO CONDICIONAL OU CONDIÇÃO TERNARIA
 
-  const Radicais = true
-  const Presenca = 'Ativo'
+  const radicais = true
+  const presenca = 'Ativo'
 
   function initialGA() {
     ReactGA.initialize("UA-170909874-1");
@@ -226,7 +226,7 @@ function Page() {
                         <option value="sabado">Sábado - 19hs</option>
                       )} */}
                   {
-                    !Radicais ? (
+                    !radicais ? (
                       <>
                         {qtdDomingoManha < qtdMAxima && (
                           <option value="manha">Sábado - 15hs</option>
@@ -341,7 +341,7 @@ function Page() {
                 </div>
 
                 <br></br>
-                {!Presenca === 'Ativo' && <button onClick={salve}>Inscrever</button>}
+                {!presenca === 'Ativo' && <button onClick={salve}>Inscrever</button>}
                 <a href="/listagem.html" className="listagem">
                   Verifique a listagem
                 </a>
